@@ -52,9 +52,21 @@ select customer_name, upper(customer_name) from customer;
 select customer_name, lower(customer_name) from customer;
 select customer_name, upper(customer_name) from customer;
 
-
-select count(customer_name), customer_city from customer group by customer_city;
+-- Group by
+select customer_city,count(customer_city) from customer group by  customer_city;
 select count(customer_name), customer_city from customer group by customer_city having customer_city='Rye';
 
+-- Group by with where clause
+select customer_city,count(customer_city) from customer where customer_name like 'a%' group by  customer_city;
 
+-- Group by with where and having clause
+select count(customer_name), customer_city from customer where customer_name like 'a%' group by customer_city having customer_city='Rye';
 
+-- Print data in ascending order
+select customer_name,customer_city from customer order by customer_name;
+
+-- Print data in descending order
+select customer_name,customer_city from customer order by customer_name desc;
+
+-- where clause with order by
+select customer_name,customer_city from customer where customer_name like 'a%' order by customer_name desc;
