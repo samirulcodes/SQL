@@ -37,3 +37,7 @@ select  * from account where account_number='A-305' or balance>500;
 select * from account where account_number like 'A%';
 select * from account where account_number like '%A';
 select * from account where account_number like '%5';
+
+
+
+
