@@ -1,5 +1,7 @@
 CREATE DATABASE CompanyDB;
+
 USE CompanyDB;
+
 create table Employees(
 id int primary key,
  Name varchar(50),
