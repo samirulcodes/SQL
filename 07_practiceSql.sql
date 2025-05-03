@@ -1,5 +1,7 @@
 USE CompanyDB;
 
+set sql_safe_updates=0;
+
 -- ALTER
 -- Add a new column joining_date to the table
 alter table Employees add joining_date date;
@@ -54,7 +56,7 @@ update Employees set location='Bob' where location='San Francisco';
 delete from Employees where location='Miami'; 
 
 -- Delete all employees with salary below 55000
--- delete from Employees where base_salary < 55000;
+delete from Employees where base_salary < 55000;
 
 -- TRUNCATE, DROP, DELETE ALL ROWS
 
@@ -72,5 +74,16 @@ create table Employees_backup as select * from Employees;
 -- Verify Backup
 select * from Employees_backup; 
 
+--  delete all employees in the HR department
+DELETE FROM Employees WHERE department = 'HR';
 
-select * from Employees;
+--  deletes all data from the table but keeps the structure.
+truncate table Employees;
+
+--  Drop the Table (Structure + Data Gone)
+drop table Employees;
+
+select * from Employees; -- table does not exists
+
+-- now Backup table
+select * from Employees_backup; 
